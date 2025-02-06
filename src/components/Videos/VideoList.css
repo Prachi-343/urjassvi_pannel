@@ -1,0 +1,66 @@
+.video-list-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.video-list-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.video-list-container .upload-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background-color: #5cb85c;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.video-list-container .upload-button:hover {
+  background-color: #4cae4c;
+}
+
+.video-list-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.video-list-container li {
+  margin-bottom: 20px;
+}
+
+.video-list-container h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.video-list-container video {
+  margin-bottom: 10px;
+}
+
+.video-list-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #d9534f;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.video-list-container button:hover {
+  background-color: #c9302c;
+}
