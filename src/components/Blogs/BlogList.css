@@ -73,3 +73,58 @@ body {
     font-size: 14px;
     color: #999;
   }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .blog-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .blog-card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .blog-card .blog-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .blog-card p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .blog-card .blog-date {
+    font-size: 14px;
+    color: #999;
+  }
+  
+  .blog-card .delete-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d9534f;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .blog-card .delete-button:hover {
+    background-color: #c9302c;
+  }

@@ -11,21 +11,26 @@ const BlogUpload = () => {
 
   const handleUpload = async () => {
     if (title && content && image) {
-      const storageRef = ref(storage, `images/${image.name}`);
-      await uploadBytes(storageRef, image);
-      const imageURL = await getDownloadURL(storageRef);
+      try {
+        const storageRef = ref(storage, `images/${image.name}`);
+        await uploadBytes(storageRef, image);
+        const imageURL = await getDownloadURL(storageRef);
 
-      await addDoc(collection(db, 'blogs'), {
-        title,
-        content,
-        imageURL,
-        createdAt: Timestamp.now()
-      });
+        await addDoc(collection(db, 'blogs'), {
+          title,
+          content,
+          imageURL,
+          createdAt: Timestamp.now()
+        });
 
-      setTitle('');
-      setContent('');
-      setImage(null);
-      alert('Blog uploaded successfully');
+        setTitle('');
+        setContent('');
+        setImage(null);
+        alert('Blog uploaded successfully');
+      } catch (error) {
+        console.error("Error uploading blog: ", error);
+        alert('Error uploading blog. Please try again.');
+      }
     } else {
       alert('Please provide a title, content, and image for the blog');
     }

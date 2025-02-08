@@ -33,9 +33,9 @@ const Login = () => {
           <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
           <button type="submit">{isSignUp ? 'Sign Up' : 'Login'}</button>
         </form>
-        {/* <button onClick={() => setIsSignUp(!isSignUp)}>
+        <button onClick={() => setIsSignUp(!isSignUp)}>
           {isSignUp ? 'Switch to Login' : 'Switch to Sign Up'}
-        </button> */}
+        </button>
       </div>
     </div>
   );
