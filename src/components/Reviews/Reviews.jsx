@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase/firebaseConfig';
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import './Reviews.css';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     const fetchReviews = async () => {
-      const snapshot = await db.collection('reviews').get();
-      const reviewsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const querySnapshot = await getDocs(collection(db, 'reviews'));
+      const reviewsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setReviews(reviewsData);
     };
 
@@ -15,21 +17,22 @@ const Reviews = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    await db.collection('reviews').doc(id).delete();
+    await deleteDoc(doc(db, 'reviews', id));
     setReviews(reviews.filter(review => review.id !== id));
   };
 
   return (
-    <div>
+    <div className="reviews-container">
       <h2>Client Reviews</h2>
-      <ul>
+      <div className="reviews-grid">
         {reviews.map(review => (
-          <li key={review.id}>
-            <p>{review.text}</p>
-            <button onClick={() => handleDelete(review.id)}>Delete</button>
-          </li>
+          <div key={review.id} className="review-card">
+            <h3>{review.name}</h3>
+            <p>{review.review}</p>
+            <button onClick={() => handleDelete(review.id)} className="delete-button">Delete</button>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
